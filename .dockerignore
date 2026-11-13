@@ -1,0 +1,13 @@
+.git
+.venv
+venv
+.codex
+.agents
+.aws
+dist
+**/__pycache__
+**/*.pyc
+**/.env
+**/.env.*
+backend/instance
+backend/tests

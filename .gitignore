@@ -12,6 +12,7 @@ venv/
 
 # Uploaded product images
 backend/instance/uploads/
+backend/instance/.secret_key
 
 # Local tooling and deployment artifacts
 .codex/
