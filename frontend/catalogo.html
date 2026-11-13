@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Pesquise e compare produtos de tecnologia avaliados pela comunidade."
+    />
+    <title>Explorar produtos — Parry Help</title>
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+    <link rel="stylesheet" href="css/site.css?v=css-modules-1" />
+    <link rel="stylesheet" href="css/catalog-create-product.css" />
+    <link rel="stylesheet" href="css/interior.css?v=8" />
+  </head>
+  <body class="interior" data-page="catalog">
+    <div data-site-header></div>
+    <main class="wrap page-main catalog-main">
+      <div class="catalog-opening">
+      <header class="page-intro">
+        <p class="eyebrow">Explorar produtos</p>
+        <h1>Sua próxima escolha.<br /><span>Com mais confiança.</span></h1>
+        <p>Explore produtos de tecnologia e descubra o que a comunidade tem a dizer.</p>
+      </header>
+      <aside class="catalog-insights" aria-labelledby="catalog-insights-title">
+        <div class="insights-heading"><span class="insights-mark" aria-hidden="true">✦</span><p class="eyebrow">Radar da comunidade · IA</p></div>
+        <h2 id="catalog-insights-title">O que está em alta?</h2>
+        <p data-catalog-summary aria-live="polite">Um panorama dos produtos mais avaliados para ajudar na sua próxima escolha.</p>
+        <p class="form-error" data-catalog-summary-error role="alert"></p>
+        <button class="button button-quiet" type="button" data-catalog-summary-button>Gerar panorama <span aria-hidden="true">↗</span></button>
+        <small>Gerado por IA a partir das avaliações da comunidade.</small>
+      </aside>
+      </div>
+      <div class="catalog-layout">
+        <button class="catalog-filter-toggle" type="button" data-filter-toggle aria-expanded="false" aria-controls="catalog-filters">
+          Filtrar produtos <span aria-hidden="true">☷</span>
+        </button>
+        <div class="catalog-filter-backdrop" data-filter-backdrop></div>
+        <aside class="filter-rail" id="catalog-filters" aria-label="Filtros do catálogo">
+          <div class="filter-head">
+            <h2>Filtros</h2>
+            <div class="filter-head-actions">
+              <button class="clear-action" type="button" data-clear-filters hidden>
+                <span aria-hidden="true">×</span>
+                <span>Limpar</span>
+              </button>
+              <button class="filter-close" type="button" data-filter-close aria-label="Fechar filtros">×</button>
+            </div>
+          </div>
+          <section class="filter-group ranking-group">
+            <h3>Filtrar por</h3>
+            <ul data-ranking-filters>
+              <li class="skeleton-line"></li>
+              <li class="skeleton-line"></li>
+            </ul>
+          </section>
+          <section class="filter-group rating-group">
+            <h3>Nota de satisfação</h3>
+            <ul data-rating-filters></ul>
+          </section>
+          <section class="filter-group top-products-group">
+            <h3 class="complaints-heading">Mais reclamados</h3>
+            <ol class="top-products-list" data-top-products>
+              <li class="skeleton-line"></li>
+              <li class="skeleton-line"></li>
+            </ol>
+          </section>
+        </aside>
+        <section class="catalog-results" aria-live="polite">
+          <div class="results-top">
+            <p data-results-count>Carregando catálogo…</p>
+            <p data-search-status></p>
+          </div>
+          <div class="product-list" data-product-list>
+            <div class="skeleton-row"></div>
+            <div class="skeleton-row"></div>
+            <div class="skeleton-row"></div>
+          </div>
+          <nav class="pagination" aria-label="Paginação" data-pagination></nav>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer site-footer--collapsible">
+      <div class="footer-bar wrap">
+        <span class="footer-copy">© <span data-year></span> Parry Help</span>
+        <nav class="footer-quick" aria-label="Links legais">
+          <button type="button" data-open-terms data-terms-document="uso">
+            Termos de Uso
+          </button>
+          <button
+            type="button"
+            data-open-terms
+            data-terms-document="consentimento"
+          >
+            Privacidade e dados
+          </button>
+        </nav>
+        <button
+          class="footer-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="footer-more"
+          data-footer-toggle
+        >
+          <span data-footer-toggle-label>Mais links</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="m6 15 6-6 6 6" />
+          </svg>
+        </button>
+      </div>
+      <div class="footer-main wrap" id="footer-more" data-footer-panel hidden>
+        <div class="footer-brand-column">
+          <a
+            class="brand"
+            href="index.html"
+            aria-label="Parry Help, página inicial"
+          >
+            <img src="assets/logo.png" alt="" />
+            <span>Parry Help</span>
+          </a>
+          <p>Experiências reais para escolhas de tecnologia mais conscientes.</p>
+          <p>As notas refletem as experiências compartilhadas pela comunidade.</p>
+        </div>
+        <div class="footer-nav-column">
+          <h2>Explorar</h2>
+          <a href="catalogo.html">Todos os produtos</a>
+          <a href="catalogo.html">Em destaque</a>
+          <a href="catalogo.html">Pesquisar produtos</a>
+          <a href="gerenciar.html">Gerenciar catálogo</a>
+        </div>
+        <div class="footer-nav-column">
+          <h2>Comparar</h2>
+          <a href="comparar.html">Montar comparação</a>
+          <a href="catalogo.html">Pesquisar produtos</a>
+        </div>
+        <div class="footer-nav-column">
+          <h2>Conta</h2>
+          <a href="conta.html">Minha conta</a>
+          <button type="button" data-open-auth data-auth-mode="login">
+            Entrar
+          </button>
+          <button type="button" data-open-auth data-auth-mode="register">
+            Criar conta
+          </button>
+        </div>
+      </div>
+    </footer>
+        <button class="button button-primary catalog-add-product" type="button" data-add-product>+ Adicionar produto</button>
+    <dialog class="catalog-product-dialog" data-create-product-dialog aria-labelledby="create-product-title">
+      <form data-create-product-form>
+        <div class="catalog-product-heading">
+          <h2 id="create-product-title">Adicionar produto</h2>
+          <button class="quiet-button" type="button" data-close-product-dialog aria-label="Fechar cadastro">×</button>
+        </div>
+        <p>Compartilhe um produto com a comunidade.</p>
+        <div class="field-wrap">
+          <label for="catalog-product-name">Nome</label>
+          <input id="catalog-product-name" name="nome" maxlength="100" required />
+        </div>
+        <div class="field-wrap">
+          <label for="catalog-product-description">Descrição</label>
+          <textarea id="catalog-product-description" name="descricao" maxlength="220" required></textarea>
+        </div>
+        <div class="field-wrap">
+          <label for="catalog-product-category">Categoria</label>
+          <select id="catalog-product-category" name="categoria_id" required disabled>
+            <option value="">Carregando categorias…</option>
+          </select>
+        </div>
+        <div class="field-wrap">
+          <label for="catalog-product-image">Imagem do computador (opcional)</label>
+          <input id="catalog-product-image" name="imagem" type="file" accept="image/png,image/jpeg,image/gif,image/webp" />
+          <small>PNG, JPG, GIF ou WebP, até 5 MB.</small>
+          <img class="catalog-product-preview" data-create-product-preview hidden alt="Prévia da imagem do produto" />
+        </div>
+        <p class="form-error" data-create-product-error role="alert"></p>
+        <button class="button button-primary" type="submit" data-create-product-submit disabled>Adicionar produto</button>
+      </form>
+    </dialog>
+    <div data-global-ui></div>
+    <script type="module" src="js/common.js?v=parry-help-1"></script>
+    <script type="module" src="js/catalog.js?v=interior-3"></script>
+    <script type="module" src="js/catalog-create-product.js?v=interior-3"></script>
+  </body>
+</html>

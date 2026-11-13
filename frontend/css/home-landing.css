@@ -1,0 +1,1184 @@
+/* Landing page (index.html): header da home + hero.
+   Tudo aqui é escopado em body[data-page="home"] para não afetar as outras telas.
+   O hero é uma seção de marca: permanece escuro também no tema claro. */
+
+body[data-page="home"] {
+  --landing-bg: #050a24;
+  --landing-bg-2: #0a1546;
+  --landing-ink: #f5f7ff;
+  --landing-ink-soft: #c9d3f5;
+  --landing-accent: #6f8cff;
+  --landing-blue: #1d44ff;
+  --landing-blue-hover: #3a5cff;
+  --landing-line: rgb(150 170 255 / 0.16);
+  --landing-focus: #a9bcff;
+  --landing-header-h: 76px;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+body[data-page="home"] main {
+  display: flex;
+  flex: 1 0 auto;
+}
+
+/* ---------- Header ---------- */
+
+body[data-page="home"] .site-header--home {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid var(--landing-line);
+  background: rgb(5 10 36 / 0.86);
+  backdrop-filter: saturate(140%) blur(14px);
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+}
+
+body[data-page="home"] .site-header--home .header-inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 24px;
+  height: var(--landing-header-h);
+}
+
+body[data-page="home"] .site-header--home .brand {
+  gap: 10px;
+  color: var(--landing-ink);
+  font: 800 20px/1 var(--font-display);
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+body[data-page="home"] .site-header--home .brand img {
+  width: 36px;
+  height: 36px;
+  padding: 2px;
+  background: #fff;
+}
+
+body[data-page="home"] .site-header--home .brand span {
+  color: var(--landing-ink);
+}
+
+body[data-page="home"] .site-header--home .brand em {
+  color: var(--landing-accent);
+  font-style: normal;
+}
+
+/* Busca */
+body[data-page="home"] .site-header--home .header-search {
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  max-width: 560px;
+  height: 44px;
+  display: flex;
+  align-items: stretch;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--landing-line);
+  border-radius: 10px;
+  background: rgb(255 255 255 / 0.06);
+  transition:
+    border-color 0.18s,
+    background 0.18s,
+    box-shadow 0.18s;
+}
+
+body[data-page="home"] .site-header--home .header-search:hover {
+  border-color: rgb(150 170 255 / 0.3);
+}
+
+body[data-page="home"] .site-header--home .header-search:focus-within {
+  border-color: var(--landing-accent);
+  background: rgb(255 255 255 / 0.09);
+  box-shadow: 0 0 0 3px rgb(111 140 255 / 0.25);
+}
+
+body[data-page="home"] .site-header--home .search-icon {
+  flex: none;
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: var(--landing-ink-soft);
+  stroke-width: 2;
+  stroke-linecap: round;
+  align-self: center;
+  margin-left: 13px;
+}
+
+body[data-page="home"] .site-header--home .header-search input {
+  height: 100%;
+  padding: 0 10px;
+  color: var(--landing-ink);
+  font-size: 14px;
+}
+
+body[data-page="home"] .site-header--home .header-search input::placeholder {
+  color: #9aa8d6;
+  opacity: 1;
+}
+
+body[data-page="home"] .site-header--home .header-search input::-webkit-search-cancel-button {
+  filter: invert(1);
+}
+
+body[data-page="home"] .site-header--home .header-search button {
+  flex: none;
+  width: auto;
+  height: auto;
+  margin: -1px -1px -1px 0;
+  padding: 0 18px;
+  border-radius: 0 10px 10px 0;
+  background: var(--landing-blue);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.18s;
+}
+
+body[data-page="home"] .site-header--home .header-search button:hover {
+  background: var(--landing-blue-hover);
+}
+
+/* Avaliar / Categorias */
+body[data-page="home"] .home-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+body[data-page="home"] .home-nav-cta,
+body[data-page="home"] .home-nav-link {
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font: 700 13.5px/1 var(--font-body);
+  white-space: nowrap;
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    color 0.18s;
+}
+
+body[data-page="home"] .home-nav-cta {
+  background: var(--landing-blue);
+  color: #fff;
+}
+
+body[data-page="home"] .home-nav-cta:hover {
+  background: var(--landing-blue-hover);
+}
+
+body[data-page="home"] .home-nav-link {
+  background: transparent;
+  color: var(--landing-ink-soft);
+}
+
+body[data-page="home"] .home-nav-link:hover,
+body[data-page="home"] .home-nav-link[aria-expanded="true"] {
+  background: rgb(255 255 255 / 0.07);
+  color: var(--landing-ink);
+}
+
+body[data-page="home"] .home-nav-link svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.18s;
+}
+
+body[data-page="home"] .home-nav-link[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+body[data-page="home"] .category-menu {
+  position: relative;
+}
+
+body[data-page="home"] .category-list,
+body[data-page="home"] .home-menu {
+  border: 1px solid var(--landing-line);
+  border-radius: 12px;
+  background: #0b1440;
+  box-shadow: 0 18px 50px rgb(0 0 0 / 0.45);
+}
+
+body[data-page="home"] .category-list {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 220px;
+  max-height: 60vh;
+  overflow: auto;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+}
+
+body[data-page="home"] .category-list a,
+body[data-page="home"] .category-list-status {
+  display: block;
+  padding: 9px 12px;
+  border-radius: 8px;
+  color: var(--landing-ink-soft);
+  font-size: 13px;
+}
+
+body[data-page="home"] .category-list a:hover {
+  background: rgb(255 255 255 / 0.07);
+  color: var(--landing-ink);
+}
+
+body[data-page="home"] .category-list-all {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid var(--landing-line);
+}
+
+body[data-page="home"] .category-list-all a {
+  color: var(--landing-accent);
+  font-weight: 700;
+}
+
+/* Sino / menu */
+body[data-page="home"] .site-header--home .header-tools {
+  gap: 6px;
+}
+
+body[data-page="home"] .site-header--home .icon-button {
+  width: 40px;
+  height: 40px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--landing-line);
+  border-radius: 8px;
+  background: rgb(255 255 255 / 0.04);
+  color: var(--landing-ink);
+  transition:
+    background 0.18s,
+    border-color 0.18s;
+}
+
+body[data-page="home"] .site-header--home .icon-button:hover,
+body[data-page="home"] .site-header--home .icon-button[aria-expanded="true"] {
+  border-color: rgb(150 170 255 / 0.32);
+  background: rgb(255 255 255 / 0.09);
+}
+
+body[data-page="home"] .site-header--home .icon-button svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Perfil do usuário (canto superior direito) */
+body[data-page="home"] .profile-menu {
+  position: relative;
+  margin-left: 4px;
+  padding-left: 10px;
+  border-left: 1px solid var(--landing-line);
+}
+
+body[data-page="home"] .profile-login,
+body[data-page="home"] .profile-trigger {
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--landing-line);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.04);
+  color: var(--landing-ink);
+  font: 700 13.5px/1 var(--font-body);
+  white-space: nowrap;
+  transition:
+    background 0.18s,
+    border-color 0.18s;
+}
+
+body[data-page="home"] .profile-login {
+  padding: 0 14px 0 10px;
+}
+
+body[data-page="home"] .profile-trigger {
+  padding: 0 10px 0 3px;
+}
+
+body[data-page="home"] .profile-login:hover,
+body[data-page="home"] .profile-trigger:hover,
+body[data-page="home"] .profile-trigger[aria-expanded="true"] {
+  border-color: rgb(150 170 255 / 0.32);
+  background: rgb(255 255 255 / 0.09);
+}
+
+body[data-page="home"] .profile-login svg,
+body[data-page="home"] .profile-chevron {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+body[data-page="home"] .profile-chevron {
+  width: 14px;
+  height: 14px;
+  color: var(--landing-ink-soft);
+  transition: transform 0.18s;
+}
+
+body[data-page="home"] .profile-trigger[aria-expanded="true"] .profile-chevron {
+  transform: rotate(180deg);
+}
+
+body[data-page="home"] .profile-avatar {
+  width: 32px;
+  height: 32px;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3a5cff, #1d44ff);
+  color: #fff;
+  font: 800 12.5px/1 var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+body[data-page="home"] .profile-label {
+  max-width: 12ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body[data-page="home"] .profile-panel {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+  z-index: 2;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  border: 1px solid var(--landing-line);
+  border-radius: 12px;
+  background: #0b1440;
+  box-shadow: 0 18px 50px rgb(0 0 0 / 0.45);
+}
+
+body[data-page="home"] .profile-panel[hidden] {
+  display: none;
+}
+
+body[data-page="home"] .profile-panel-head {
+  display: grid;
+  gap: 3px;
+  margin-bottom: 4px;
+  padding: 10px 12px 12px;
+  border-bottom: 1px solid var(--landing-line);
+}
+
+body[data-page="home"] .profile-panel-head strong {
+  overflow: hidden;
+  color: var(--landing-ink);
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body[data-page="home"] .profile-panel-head span {
+  overflow: hidden;
+  color: #9aa8d6;
+  font-size: 12.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body[data-page="home"] .profile-panel > a,
+body[data-page="home"] .profile-panel > button {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--landing-ink-soft);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-align: left;
+}
+
+body[data-page="home"] .profile-panel > a:hover,
+body[data-page="home"] .profile-panel > button:hover {
+  background: rgb(255 255 255 / 0.07);
+  color: var(--landing-ink);
+}
+
+body[data-page="home"] .profile-panel > [data-logout] {
+  color: #ff9aa6;
+}
+
+/* Painel do menu (todas as larguras) */
+body[data-page="home"] .site-header--home .home-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: max(16px, calc((100% - 1192px) / 2));
+  width: min(260px, calc(100% - 32px));
+  margin: 0;
+  padding: 6px;
+}
+
+body[data-page="home"] .site-header--home .home-menu:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+}
+
+body[data-page="home"] .site-header--home .home-menu > a,
+body[data-page="home"] .site-header--home .home-menu > button {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--landing-ink-soft);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-align: left;
+}
+
+body[data-page="home"] .site-header--home .home-menu > a:hover,
+body[data-page="home"] .site-header--home .home-menu > button:hover {
+  background: rgb(255 255 255 / 0.07);
+  color: var(--landing-ink);
+}
+
+body[data-page="home"] .site-header--home .home-menu > [data-theme-toggle] {
+  margin-top: 4px;
+  border-top: 1px solid var(--landing-line);
+  border-radius: 0 0 8px 8px;
+}
+
+body[data-page="home"] .home-menu-compact {
+  display: none !important;
+}
+
+body[data-page="home"] .site-header--home :focus-visible {
+  outline: 2px solid var(--landing-focus);
+  outline-offset: 2px;
+}
+
+body[data-page="home"] .site-header--home .header-search input:focus-visible {
+  outline: 0;
+}
+
+/* ---------- Hero ---------- */
+
+.landing-hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  flex: 1 0 auto;
+  width: 100%;
+  min-height: min(760px, calc(100svh - var(--landing-header-h, 72px)));
+  padding: clamp(72px, 12vh, 128px) 0;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 80% at 50% 0%, var(--landing-bg-2) 0%, transparent 60%),
+    linear-gradient(180deg, var(--landing-bg) 0%, #071037 100%);
+  color: var(--landing-ink);
+}
+
+.landing-hero::after {
+  /* transição suave para o rodapé */
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 120px;
+  background: linear-gradient(180deg, transparent, rgb(5 10 36 / 0.6));
+  pointer-events: none;
+  z-index: -1;
+}
+
+.landing-texture {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.landing-texture svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.landing-texture .texture-dots {
+  opacity: 0.07;
+}
+
+.landing-texture .shape-fill {
+  fill: #1d44ff;
+  opacity: 0.22;
+}
+
+.landing-texture .shape-soft {
+  fill: #c7d4ff;
+  opacity: 0.06;
+}
+
+.landing-texture .shape-line,
+.landing-texture .shape-ring {
+  fill: none;
+  stroke: #c7d4ff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.2;
+}
+
+.landing-texture .shape-spark {
+  fill: #c7d4ff;
+  opacity: 0.22;
+}
+
+/* Levitação controlada por js/home.js (smoothstep + lerp). */
+.landing-texture .shape-fill,
+.landing-texture .shape-soft,
+.landing-texture .shape-line,
+.landing-texture .shape-ring,
+.landing-texture .shape-spark {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.landing-title {
+  max-width: 22ch;
+  margin: 0;
+  color: var(--landing-ink);
+  font: 800 clamp(2.4rem, 5.4vw, 4.5rem) / 1.06 var(--font-display);
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.landing-title span {
+  display: block;
+  color: var(--landing-accent);
+  background: linear-gradient(90deg, #8ea4ff 0%, #5b7bff 55%, #7a93ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* A área do gradiente acompanha a caixa da linha (line-height 1.06), que é
+     mais baixa que o descendente do "g". O padding estende a área pintada e a
+     margem negativa compensa, mantendo o alinhamento e o espaçamento. */
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+/* Subtítulo em cascata: linha de cima mais longa, de baixo mais curta,
+   repetindo o desenho da headline. Em telas estreitas as partes voltam a
+   fluir juntas e a quebra natural mantém a linha superior mais cheia. */
+.landing-lead {
+  margin: clamp(20px, 2.6vw, 28px) 0 0;
+  color: var(--landing-ink-soft);
+  font: 500 clamp(1.05rem, 1.45vw, 1.25rem) / 1.6 var(--font-body);
+}
+
+.landing-lead span {
+  display: block;
+}
+
+/* Mesmo componente dos botões "Avaliar"/"Categorias" do cabeçalho (cor,
+   fonte, hover e foco), na variante grande para a chamada principal. */
+.landing-cta {
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 200px;
+  margin-top: clamp(32px, 4vw, 44px);
+  padding: 0 32px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: var(--landing-blue);
+  color: #fff;
+  font: 700 16px/1 var(--font-body);
+  white-space: nowrap;
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    color 0.18s;
+}
+
+.landing-cta:hover {
+  background: var(--landing-blue-hover);
+}
+
+.landing-cta:focus-visible {
+  outline: 2px solid var(--landing-focus);
+  outline-offset: 2px;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 1080px) {
+  body[data-page="home"] .site-header--home .header-inner {
+    gap: 16px;
+  }
+}
+
+/* Tablet: Avaliar/Categorias vão para o menu */
+@media (max-width: 900px) {
+  body[data-page="home"] .site-header--home .header-inner {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  body[data-page="home"] .home-nav {
+    display: none;
+  }
+
+  body[data-page="home"] .home-menu-compact {
+    display: flex !important;
+  }
+}
+
+/* Celular: busca ocupa uma linha própria */
+@media (max-width: 680px) {
+  body[data-page="home"] {
+    --landing-header-h: 122px;
+  }
+
+  body[data-page="home"] .site-header--home .header-inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand tools"
+      "search search";
+    row-gap: 10px;
+    height: auto;
+    padding-block: 12px;
+  }
+
+  body[data-page="home"] .site-header--home .brand {
+    grid-area: brand;
+    font-size: 19px;
+  }
+
+  body[data-page="home"] .site-header--home .header-search {
+    grid-area: search;
+    display: flex;
+    max-width: none;
+  }
+
+  body[data-page="home"] .site-header--home .header-tools {
+    grid-area: tools;
+    margin-left: 0;
+  }
+
+  body[data-page="home"] .site-header--home .icon-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  body[data-page="home"] .site-header--home .home-menu {
+    right: 16px;
+  }
+
+  /* No celular o perfil vira só o avatar/ícone (rótulo continua acessível). */
+  body[data-page="home"] .profile-menu {
+    margin-left: 2px;
+    padding-left: 8px;
+  }
+
+  body[data-page="home"] .profile-login,
+  body[data-page="home"] .profile-trigger {
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  body[data-page="home"] .profile-label,
+  body[data-page="home"] .profile-chevron {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  body[data-page="home"] .profile-panel {
+    top: calc(100% + 10px);
+    width: min(260px, calc(100vw - 32px));
+  }
+
+  .landing-hero {
+    min-height: calc(100svh - var(--landing-header-h));
+    padding: 64px 0 72px;
+  }
+
+  .landing-texture .texture-drift-c {
+    display: none;
+  }
+
+  .landing-texture .shape-fill {
+    opacity: 0.16;
+  }
+
+  .landing-title {
+    font-size: clamp(2.1rem, 9.6vw, 2.9rem);
+    letter-spacing: -0.03em;
+  }
+
+  .landing-cta {
+    height: 52px;
+    min-width: min(240px, 100%);
+  }
+
+  .landing-lead span {
+    display: inline;
+  }
+
+  .landing-lead {
+    max-width: 34ch;
+    text-wrap: pretty;
+  }
+}
+
+/* ---------- Rodapé recolhível (somente home) ----------
+   Barra compacta sempre visível (copyright + links legais + botão "Mais links");
+   as colunas de navegação ficam recolhidas até o usuário expandir. */
+
+body[data-page="home"] .site-footer--collapsible {
+  margin-top: 0;
+  padding: 0;
+  border-top: 1px solid var(--landing-line);
+  background: #040820;
+  color: var(--landing-ink-soft);
+}
+
+body[data-page="home"] .footer-bar {
+  min-height: 56px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 24px;
+  font-size: 12.5px;
+}
+
+body[data-page="home"] .footer-copy {
+  color: #9aa8d6;
+}
+
+body[data-page="home"] .footer-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+body[data-page="home"] .footer-quick button,
+body[data-page="home"] .footer-toggle {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--landing-ink-soft);
+  font: 600 12.5px/1 var(--font-body);
+  transition:
+    background 0.18s,
+    color 0.18s;
+}
+
+body[data-page="home"] .footer-quick button:hover,
+body[data-page="home"] .footer-toggle:hover {
+  background: rgb(255 255 255 / 0.06);
+  color: var(--landing-ink);
+}
+
+body[data-page="home"] .footer-toggle {
+  border: 1px solid var(--landing-line);
+}
+
+body[data-page="home"] .footer-toggle svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.18s;
+}
+
+body[data-page="home"] .footer-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+body[data-page="home"] .site-footer--collapsible :focus-visible {
+  outline: 2px solid var(--landing-focus);
+  outline-offset: 2px;
+}
+
+body[data-page="home"] .site-footer--collapsible .footer-main {
+  grid-template-columns: 1.6fr repeat(3, minmax(120px, 1fr));
+  padding: 28px 0 32px;
+  border-top: 1px solid var(--landing-line);
+  animation: footer-reveal 0.22s ease-out;
+}
+
+body[data-page="home"] .site-footer--collapsible .footer-main[hidden] {
+  display: none;
+}
+
+body[data-page="home"] .site-footer--collapsible .footer-brand-column > p + p {
+  margin-top: 0;
+  color: #8e9cc9;
+  font-size: 12.5px;
+}
+
+body[data-page="home"] .site-footer--collapsible .footer-nav-column a,
+body[data-page="home"] .site-footer--collapsible .footer-nav-column button {
+  min-height: 28px;
+}
+
+@keyframes footer-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* O rodapé da home é parte da área de marca: mantém o tom escuro no tema claro. */
+html[data-theme="light"] body[data-page="home"] .site-footer--collapsible {
+  background: #040820;
+  color: var(--landing-ink-soft);
+}
+
+html[data-theme="light"] body[data-page="home"] .site-footer--collapsible :is(.footer-brand-column .brand, .footer-nav-column h2) {
+  color: #fff;
+}
+
+html[data-theme="light"] body[data-page="home"] .site-footer--collapsible :is(.footer-brand-column > p, .footer-nav-column a, .footer-nav-column button) {
+  color: #b4bfd8;
+}
+
+@media (max-width: 900px) {
+  body[data-page="home"] .site-footer--collapsible .footer-main {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  body[data-page="home"] .footer-bar {
+    flex-direction: column;
+    gap: 6px;
+    padding-block: 14px;
+  }
+
+  body[data-page="home"] .footer-quick {
+    justify-content: center;
+  }
+
+  body[data-page="home"] .footer-toggle {
+    min-height: 40px;
+  }
+
+  body[data-page="home"] .site-footer--collapsible .footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 20px;
+  }
+
+  body[data-page="home"] .site-footer--collapsible .footer-brand-column {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- Popups da home (login/cadastro, termos, toast, consentimento) ----------
+   Os popups globais usam tokens do tema; aqui eles são redefinidos com a paleta
+   da landing (fixa, como o hero) e os componentes seguem o mesmo sistema:
+   painéis com raio 12–16px, botões de 42px com raio 8px, foco em azul claro. */
+
+body[data-page="home"] :is(.modal-backdrop, .toast, .consent-banner) {
+  --surface: #0b1440;
+  --surface-2: #14215e;
+  --paper: #070e30;
+  --line: rgb(150 170 255 / 0.18);
+  --ink: #f5f7ff;
+  --ink-soft: #c9d3f5;
+  --muted: #8e9cc9;
+  --blue: #1d44ff;
+  --blue-deep: #6f8cff;
+  --blue-wash: rgb(111 140 255 / 0.14);
+  --red: #ff8f9c;
+  color-scheme: dark;
+}
+
+body[data-page="home"] .modal-backdrop {
+  background: rgb(3 6 24 / 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+body[data-page="home"] .modal-backdrop:not([hidden]) .modal {
+  animation: landing-pop 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes landing-pop {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+body[data-page="home"] :is(.auth-modal, .terms-modal) {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background:
+    radial-gradient(120% 60% at 50% 0%, rgb(45 85 255 / 0.16), transparent 60%),
+    var(--surface);
+  box-shadow:
+    0 30px 90px rgb(0 0 0 / 0.55),
+    inset 0 1px 0 rgb(255 255 255 / 0.04);
+}
+
+body[data-page="home"] :is(.auth-modal, .terms-modal) .auth-kicker {
+  color: var(--blue-deep);
+  font: 700 12px/1.3 var(--font-body);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+body[data-page="home"] :is(.auth-modal, .terms-modal) h2 {
+  color: var(--ink);
+  font: 800 clamp(24px, 4.6vw, 30px) / 1.15 var(--font-display);
+  letter-spacing: -0.03em;
+}
+
+/* Fechar = mesmo botão-ícone do header */
+body[data-page="home"] :is(.auth-modal, .terms-modal) .modal-close {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  padding: 0 0 2px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgb(255 255 255 / 0.04);
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1;
+}
+
+body[data-page="home"] :is(.auth-modal, .terms-modal) .modal-close:hover {
+  border-color: rgb(150 170 255 / 0.32);
+  background: rgb(255 255 255 / 0.09);
+}
+
+/* Abas = estilo do botão "Categorias" (selecionada vira o "Avaliar") */
+body[data-page="home"] .auth-modal .modal-tabs {
+  border-color: var(--line);
+  border-radius: 10px;
+  background: rgb(255 255 255 / 0.04);
+}
+
+body[data-page="home"] .auth-modal .modal-tabs button {
+  min-height: 40px;
+  border-radius: 7px;
+  color: var(--ink-soft);
+  font: 700 13.5px/1 var(--font-body);
+}
+
+body[data-page="home"] .auth-modal .modal-tabs button:hover:not(.active) {
+  background: rgb(255 255 255 / 0.06);
+  color: var(--ink);
+}
+
+body[data-page="home"] .auth-modal .modal-tabs button.active {
+  background: var(--blue);
+  color: #fff;
+  box-shadow: none;
+}
+
+body[data-page="home"] .terms-modal .terms-tabs button {
+  min-height: 42px;
+  padding: 0 14px;
+  border-color: var(--line);
+  border-radius: 8px;
+  font: 700 13px/1 var(--font-body);
+}
+
+body[data-page="home"] .terms-modal .terms-tabs button[aria-selected="true"] {
+  border-color: transparent;
+  background: var(--blue);
+  color: #fff;
+}
+
+/* Campos = mesmo tratamento do campo de busca */
+body[data-page="home"] .auth-modal .field-wrap input {
+  height: 46px;
+  border-color: var(--line);
+  border-radius: 10px;
+  background: rgb(255 255 255 / 0.05);
+}
+
+body[data-page="home"] .auth-modal .field-wrap input:hover {
+  border-color: rgb(150 170 255 / 0.3);
+}
+
+body[data-page="home"] .auth-modal .field-wrap input:focus {
+  border-color: var(--blue-deep);
+  background: rgb(255 255 255 / 0.08);
+  box-shadow: 0 0 0 3px rgb(111 140 255 / 0.25);
+}
+
+body[data-page="home"] .auth-modal .terms-acceptance,
+body[data-page="home"] .terms-document {
+  border-color: var(--line);
+  border-radius: 10px;
+  background: rgb(255 255 255 / 0.03);
+}
+
+/* Botões primários dos popups = "Avaliar"/CTA */
+body[data-page="home"] :is(.auth-modal .modal-submit, .consent-banner .button-primary) {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: var(--blue);
+  color: #fff;
+  font: 700 13.5px/1 var(--font-body);
+  transform: none;
+  transition: background 0.18s;
+}
+
+body[data-page="home"] .auth-modal .modal-submit {
+  min-height: 46px;
+}
+
+body[data-page="home"] :is(.auth-modal .modal-submit, .consent-banner .button-primary):hover {
+  background: var(--landing-blue-hover);
+  color: #fff;
+  transform: none;
+}
+
+body[data-page="home"] :is(.modal-backdrop, .consent-banner) :focus-visible {
+  outline: 2px solid var(--landing-focus);
+  outline-offset: 2px;
+}
+
+body[data-page="home"] .auth-modal .field-wrap input:focus-visible {
+  outline: 0;
+}
+
+/* Banner de consentimento: cartão flutuante centralizado */
+body[data-page="home"] .consent-banner {
+  left: 50%;
+  bottom: 20px;
+  width: min(560px, calc(100% - 32px));
+  max-width: none;
+  gap: 16px;
+  padding: 12px 12px 12px 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgb(11 20 64 / 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 18px 50px rgb(0 0 0 / 0.45);
+  transform: translateX(-50%);
+}
+
+body[data-page="home"] .consent-banner p {
+  flex: 1;
+  color: var(--ink-soft);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+body[data-page="home"] .consent-banner .button-primary {
+  min-height: 40px;
+  flex: none;
+  padding: 0 16px;
+}
+
+/* Toast: mesmo painel escuro, com faixa de status à esquerda */
+body[data-page="home"] .toast {
+  right: 20px;
+  bottom: 20px;
+  padding: 12px 16px 12px 14px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--blue-deep);
+  border-radius: 10px;
+  background: rgb(11 20 64 / 0.96);
+  box-shadow: 0 18px 50px rgb(0 0 0 / 0.45);
+  color: var(--ink);
+  font-size: 13px;
+}
+
+body[data-page="home"] .toast[data-kind="error"] {
+  border-left-color: var(--red);
+  background: rgb(11 20 64 / 0.96);
+  color: var(--ink);
+}
+
+@media (max-width: 680px) {
+  body[data-page="home"] .consent-banner {
+    bottom: 12px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  body[data-page="home"] .consent-banner .button-primary {
+    min-height: 44px;
+  }
+
+  body[data-page="home"] .toast {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    max-width: none;
+  }
+}

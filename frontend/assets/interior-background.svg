@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 800"
+            preserveAspectRatio="xMidYMid slice"
+            focusable="false"
+          >
+            <style>
+  .texture-dots { opacity: .06; }
+  .shape-fill { fill: #1d44ff; opacity: .14; }
+  .shape-soft { fill: #c7d4ff; opacity: .04; }
+  .shape-line, .shape-ring { fill: none; stroke: #c7d4ff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: .16; }
+  .shape-spark { fill: #c7d4ff; opacity: .14; }
+</style>
+<defs>
+              <radialGradient id="landing-glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0" stop-color="#2d55ff" stop-opacity="0.1" />
+                <stop offset="1" stop-color="#2d55ff" stop-opacity="0" />
+              </radialGradient>
+              <pattern
+                id="landing-dots"
+                width="32"
+                height="32"
+                patternUnits="userSpaceOnUse"
+              >
+                <circle cx="1.5" cy="1.5" r="1.1" fill="#c9d6ff" />
+              </pattern>
+              <radialGradient id="landing-fade" cx="50%" cy="50%" r="62%">
+                <stop offset="0.35" stop-color="#fff" stop-opacity="0" />
+                <stop offset="1" stop-color="#fff" stop-opacity="1" />
+              </radialGradient>
+              <mask id="landing-dots-mask">
+                <rect width="1440" height="800" fill="url(#landing-fade)" />
+              </mask>
+            </defs>
+
+            <rect
+              class="texture-dots"
+              width="1440"
+              height="800"
+              fill="url(#landing-dots)"
+              mask="url(#landing-dots-mask)"
+            />
+            <ellipse
+              cx="720"
+              cy="420"
+              rx="620"
+              ry="360"
+              fill="url(#landing-glow)"
+            />
+
+            <g class="decoration-a">
+              <circle class="shape-fill" cx="70" cy="170" r="92" />
+              <circle class="shape-soft" cx="364" cy="128" r="30" />
+              <path class="shape-line" d="M138 108 160 72 182 108Z" />
+              <path class="shape-line" d="M146 286v28M132 300h28" />
+              <path class="shape-line" d="M70 266l20 12-20 12Z" />
+              <rect class="shape-line" x="132" y="440" width="22" height="22" rx="2" />
+              <path class="shape-line" d="M262 450l14 14M276 450l-14 14" />
+              <path class="shape-spark" d="M210 640l5 15 15 5-15 5-5 15-5-15-15-5 15-5Z" />
+              <circle class="shape-ring" cx="58" cy="560" r="9" />
+            </g>
+
+            <g class="decoration-b">
+              <circle class="shape-fill" cx="1300" cy="600" r="84" />
+              <circle class="shape-soft" cx="1140" cy="92" r="20" />
+              <path class="shape-line" d="M1222 218l-26 14 26 14Z" />
+              <path class="shape-line" d="M1350 120v26M1337 133h26" />
+              <path class="shape-line" d="M1270 330l18 18M1288 330l-18 18" />
+              <rect class="shape-soft" x="1380" y="250" width="64" height="64" rx="3" />
+              <path class="shape-spark" d="M1170 470l5 15 15 5-15 5-5 15-5-15-15-5 15-5Z" />
+              <circle class="shape-ring" cx="1400" cy="740" r="10" />
+              <path class="shape-line" d="M1110 690v24M1098 702h24" />
+            </g>
+
+            <g class="decoration-c">
+              <path class="shape-soft" d="M190 520l150-40-34 138Z" />
+              <circle class="shape-ring" cx="890" cy="104" r="8" />
+              <path class="shape-line" d="M560 726l14 14M574 726l-14 14" />
+              <rect class="shape-soft" x="830" y="716" width="80" height="80" rx="3" />
+              <path class="shape-line" d="M1010 150l12 12M1022 150l-12 12" />
+              <path class="shape-line" d="M520 96v20M510 106h20" />
+            </g>
+          </svg>

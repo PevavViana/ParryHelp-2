@@ -1,0 +1,88 @@
+.catalog-add-product {
+  position: fixed;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+  z-index: 30;
+  min-height: 48px;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+
+.catalog-product-dialog {
+  width: min(500px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 26px;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+
+.catalog-product-dialog::backdrop {
+  background: rgb(3 9 24 / 72%);
+  backdrop-filter: blur(5px);
+}
+
+.catalog-product-dialog form {
+  display: grid;
+  gap: 16px;
+}
+
+.catalog-product-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.catalog-product-heading h2,
+.catalog-product-dialog p {
+  margin: 0;
+}
+
+.catalog-product-heading button {
+  min-width: 40px;
+  min-height: 40px;
+  font-size: 26px;
+}
+
+.catalog-product-dialog .field-wrap {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.catalog-product-dialog :is(input, textarea, select) {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.catalog-product-dialog textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.catalog-product-dialog small {
+  color: var(--muted);
+}
+
+.catalog-product-dialog .form-error {
+  color: var(--red);
+}
+
+.catalog-product-dialog .form-error:empty {
+  display: none;
+}
+
+.catalog-product-preview {
+  max-width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+}
