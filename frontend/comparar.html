@@ -9,8 +9,18 @@
     />
     <title>Comparar produtos — Parry Help</title>
     <link rel="icon" href="assets/logo.png" type="image/png" />
-    <link rel="stylesheet" href="css/site.css?v=css-modules-1" />
-    <link rel="stylesheet" href="css/interior.css?v=8" />
+    <script>
+      (() => {
+        let theme;
+        try { theme = localStorage.getItem("taxatio_theme"); } catch {}
+        document.documentElement.dataset.theme =
+          theme === "light" || theme === "dark" ? theme :
+          matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      })();
+    </script>
+    <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="css/interior-bundle.css?v=1" />
   </head>
   <body class="interior" data-page="compare">
     <div data-site-header></div>

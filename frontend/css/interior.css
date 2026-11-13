@@ -47,6 +47,11 @@ html[data-theme="light"] body.interior {
 }
 
 /* Same navy, translucent search and electric blue as the landing header. */
+body.interior [data-site-header] { min-height: 77px; }
+@media (max-width: 680px) {
+  body.interior [data-site-header] { min-height: 123px; }
+}
+
 :root body.interior .site-header {
   background: rgb(5 10 36 / 94%);
   border-bottom: 1px solid rgb(150 170 255 / 16%);
