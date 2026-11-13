@@ -1,0 +1,10 @@
+/* Reserve only the missing header while its existing JS is downloading. */
+body[data-page="home"] [data-site-header]:empty {
+  height: 77px;
+  flex-shrink: 0;
+  background: #050a24;
+}
+
+@media (max-width: 680px) {
+  body[data-page="home"] [data-site-header]:empty { height: 119px; }
+}
